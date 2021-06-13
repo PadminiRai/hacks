@@ -20,9 +20,12 @@
         }  
       </style>
   </head>
+  <br>
+  <h2 style="background-color: aquamarine;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Upcoming Events</h1>
+  <br><br><br><br>
 <body id="bck" >
-<div class="text-center align-middle tab" style="font-size: large;">
-  <table  class="text-center align-middle" style="width: auto;"  id="tevents"> 
+<div class="text-center align-middle " style="font-size: large;">
+  <table border="1" class="text-center align-middle" style="width: 800px;background-color: bisque;"  id="tevents"> 
     <thead>
        <th>
        S.No.
@@ -33,9 +36,27 @@
       <th>
         Date 
       </th> 
+      <th>
+        Time 
+      </th> 
     </thead>
     <tbody>
-     
+      {% for i in evntsl %}
+     <tr>
+       <td>
+        {{ forloop.counter }}
+       </td>
+       <td>
+        {{i.eloct}}
+       </td>
+       <td>
+        {{i.edate}}
+       </td>
+       <td>
+        {{i.etime}}
+       </td>
+     </tr>  
+   {% endfor %} 
     </tbody>
 </table>
 </div>

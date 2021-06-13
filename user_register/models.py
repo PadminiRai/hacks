@@ -3,14 +3,15 @@ class Position(models.Model):
     title=models.CharField(max_length=20)
     def __str__(self):
         return self.title
-class Employee(models.Model):
-    eno = models.IntegerField(max_length=10,primary_key=True)
-    ename = models.CharField(max_length=20,null = False)
-    mobile = models.IntegerField(max_length=10,null = False)
-    position = models.ForeignKey(Position,on_delete=models.CASCADE)
+class evnts(models.Model):
+    edate = models.CharField(max_length=20)
+    etime = models.CharField(max_length=20)
+    eloct = models.CharField(max_length=50)
 
 class details(models.Model):
     uid = models.CharField(max_length=10,primary_key=True)
-    pwd = models.CharField(max_length=20,null = False)
+    email = models.CharField(max_length=20)
+    pwd = models.CharField(max_length=20)
+    utype = models.CharField(max_length=2)
    
 # Create your models here.

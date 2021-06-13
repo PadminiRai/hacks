@@ -35,7 +35,7 @@
                     Date : 
                 </td>
                 <td>
-                    <input type="date" id="evt_date" style="width: 204px;" /> 
+                    <input type="date" id="edate" style="width: 204px;" /> 
                 </td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                     Location : 
                 </td>
                 <td>
-                    <input type="text" id="evt_loc"> 
+                    <input type="text" id="eloc"> 
                 </td>
             </tr>
            
@@ -52,13 +52,13 @@
                    Time : 
                 </td>
                 <td>
-                    <input type="time" id="evt_time" style="width: 204px;" /> 
+                    <input type="time" id="etime" style="width: 204px;" /> 
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <div class="text-center">
-                    <button type="submit" onclick="rs();">
+                    <button type="submit" onclick="s();">
                         Submit
                     </button></div>
                 </td>
@@ -71,26 +71,16 @@
 </html>
 <script>
 
-
-
-// $("#evt_date").prop('required',true);
-// $(document).ready(function () {
-//     $('#evt_date').datepicker({
-        
-//         dateFormat: 'dd-mm-yy',
-//         minDate: "-1M",
-//         maxDate: "0",
-//         onSelect: function(  ){
-//     document.querySelector("#evt_date").click();
-//     }
-// });
-// });
+function s(){
+ var edate = document.getElementById("edate").value;
+ var etime = document.getElementById("etime").value;
+ var eloc = document.getElementById("eloc").value;
+ window.location.href="{% url 'event_addf' %}"+"?edate="+edate+"&etime="+etime+"&eloc="+eloc;
 
 
 
-
-
-
+    
+}
 
 </script>
 

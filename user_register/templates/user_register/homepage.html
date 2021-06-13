@@ -194,13 +194,21 @@ function ls(){
  var utype = document.querySelector('input[name="ruser"]:checked').value;
  var uid = document.getElementById("luserid").value;
  var pwd = document.getElementById("lpwd").value;
- window.location.href="{% url 'safety_ohs_a10' %}"+"?utype="+utype+"&uid="+uid+"&pwd="+pwd;
-
-
+ if(utype=='v')
+ window.location.href="{% url 'v_eventf' %}"+"?utype="+utype+"&uid="+uid+"&pwd="+pwd;
+ if(utype=='c')
+ window.location.href="{% url 'event_regf' %}"+"?utype="+utype+"&uid="+uid+"&pwd="+pwd;
 }
 
 function rs(){
-
+ var utype = document.querySelector('input[name="ruser"]:checked').value;
+ var uid = document.getElementById("ruserid").value;
+ var pwd = document.getElementById("rpwd").value;
+ var emailid = document.getElementById("remailid").value; 
+ if(utype=='v')
+ window.location.href="{% url 'addv' %}"+"?utype="+utype+"&uid="+uid+"&pwd="+pwd+"&emailid="+emailid;
+ if(utype=='c')
+ window.location.href="{% url 'addc' %}"+"?utype="+utype+"&uid="+uid+"&pwd="+pwd+"&emailid="+emailid;
 
 
 
