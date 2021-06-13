@@ -1,0 +1,33 @@
+{% extends "user_register/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="post" autocomplete="off">
+        {%csrf_token%}
+        {{form.eno|as_crispy_field}}
+        {{form.ename|as_crispy_field}}
+        <div class="row">
+
+            <div class="col-md-4">
+
+                {{form.position|as_crispy_field}}
+
+            </div>
+            <div class="col-md-8">
+
+                {{form.mobile|as_crispy_field}}
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-cash-register"></i>
+            SUBMIT
+
+        </button>
+        <button type="button" class="btn btn-success " onclick="n9func()" >next</button>
+    </form>
+    <script>
+        function n9func(){
+        window.location.href="{% url 'safety_ohs_a9' %}";
+}
+    </script>
+{% endblock content %}

@@ -1,0 +1,163 @@
+{% extends 'user_register/base.html' %} 
+{% block content %}
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <font style="font-size: large; color: red; font-weight:bold">
+                <li>
+                    {{message}}
+                </li>
+            </font>
+            {% endfor %}
+        </ul>
+ {% endif %}
+<form method="POST">
+<div class="container "> 
+  <br>  
+  <h5 class="text-center align-middle">Section : A</h5>      
+  <table class="table text-center table-bordered table-striped ">
+    <thead>
+      <tr >
+        <th  class = "text-left" width="5%" >9.</th>
+        <th  class = "text-left" width="32.5%">Personal Protective equipments</th>
+        <div class="text-center">
+        <th class="align-middle">0</th>
+        <th class="align-middle" >1</th>
+        <th class="align-middle">2</th>
+        <th class="align-middle">3</th>
+        <th class="align-middle">4</th>
+        <th class="align-middle">5</th>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  >
+        <td  class = "text-left" >
+        i)
+        </td>
+        <td  class = "text-left" >
+         Provided / Not Provided
+        </td>
+        <div class="text-center">
+        <td   >
+            <input value="0" id="type_radio_10" name="r1" type="radio" onchange="chng()"/>
+        </td> 
+        <td   >
+            <input value="1" id="type_radio_11" name="r1" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="2" id="type_radio_12" name="r1" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="3" id="type_radio_13" name="r1" type="radio" onchange="chng()"/>
+        </td> 
+        <td   >
+            <input value="4" id="type_radio_14" name="r1" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="5" id="type_radio_15" name="r1" type="radio" onchange="chng()"/>
+         </td> 
+        </div>
+      </tr>
+      <tr   >
+        <td  class = "text-left" >
+            ii)
+            </td>
+        <td class = "text-left"  >
+            Use of PPEs in shop floor
+        </td>
+        <div class="text-center">
+        <td   >
+            <input value="0" id="type_radio_20" name="r2" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="1" id="type_radio_21" name="r2" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="2" id="type_radio_22" name="r2" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="3" id="type_radio_23" name="r2" type="radio" onchange="chng()"/>
+        </td> 
+        <td   >
+            <input value="4" id="type_radio_24" name="r2" type="radio" onchange="chng()"/>
+         </td> 
+        <td   >
+            <input value="5" id="type_radio_25" name="r2" type="radio" onchange="chng()"/>
+         </td> 
+      </tr>
+       </div>
+    </tbody>
+  </table>
+     
+   <div class="text-center">
+    <button type="button" class="btn btn-success  " onclick="p9func()" >prev.</button>
+        &nbsp;&nbsp;
+    <button type="button" class="btn btn-success " onclick="n9func()" >next</button>
+  </div>
+</div>
+<script>
+  window.onload = f;
+  function f(){
+    
+        var v1=Array.from(document.getElementsByName('r1'));
+        var v2=Array.from(document.getElementsByName('r2'));
+
+        var val1 = sessionStorage.getItem('a91');
+        var val2 = sessionStorage.getItem('a92');    
+        
+        for (i = 0; i < v2.length; i++) {
+          if (v2[i].value==val2) 
+          {
+                    v2[i].checked=true;
+          }
+        }
+        for (i = 0; i < v1.length; i++) {
+          if (v1[i].value==val1) 
+          {
+              v1[i].checked=true;
+              
+          }
+        }
+
+}
+function chng()
+{
+    if(document.querySelector('input[name="r1"]:checked').value!=sessionStorage.getItem("a91"))
+     {
+      var b1 = document.querySelector('input[name="r1"]:checked').value;
+      sessionStorage.setItem("a91", b1);
+     }
+    if(document.querySelector('input[name="r2"]:checked').value!=sessionStorage.getItem("a92")){
+      var b2 = document.querySelector('input[name="r2"]:checked').value;
+      sessionStorage.setItem("a92", b2); 
+    }
+    
+}
+
+
+
+
+
+
+
+var x=sessionStorage.getItem('pk');
+function n9func(){
+  if($('input[type=radio]:checked').size() == 2)
+  {
+    var b1 = document.querySelector('input[name="r1"]:checked').value;
+    var b2 = document.querySelector('input[name="r2"]:checked').value;  
+    sessionStorage.setItem("a91", b1);
+    sessionStorage.setItem("a92", b2); 
+    window.location.href="{% url 'safety_ohs_a10' %}"+"?b1="+b1+"&b2="+b2+"&x="+x;
+  }
+  else{
+    alert("Rate all the Criterias");
+  }
+}
+  function p9func(){
+       
+}</script>
+</form>
+ 
+{% endblock content %}

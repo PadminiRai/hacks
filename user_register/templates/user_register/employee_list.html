@@ -1,0 +1,13 @@
+{% extends "user_register/base.html" %}
+
+{% block content %}
+    <p>list of employees is displayed</p>
+
+    {% for i in employeel %}
+  <p>a
+    {{i.eno}}
+  </p>
+   {% endfor %} 
+
+   
+{% endblock content %}

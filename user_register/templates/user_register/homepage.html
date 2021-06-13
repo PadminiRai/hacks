@@ -1,0 +1,216 @@
+
+<html style="background-color: bisque;">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body {font-family: Arial;}
+        
+        /* Style the tab */
+        .tab {
+          overflow: hidden;
+          /* border: 1px solid #ccc; */
+          background-color: #f1f1f1;
+          width :max-content;
+        }
+        
+        /* Style the buttons inside the tab */
+        .tab button {
+          background-color: inherit;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 0.3s;
+          /* font-size: 17px; */
+          width: 152px;
+        }
+        
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+          background-color: #ddd;
+        }
+        
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color: #ccc;
+        }
+        
+        /* Style the tab content */
+        .tabcontent {
+          display: block;
+          padding: 6px 12px;
+          border: none;
+          border-top: none; 
+        }
+#bck{
+    
+    background-image: url('https://www.lifewire.com/thmb/wwxq7jp-2tjL6nq_2B0YxWKXw4E=/1920x1080/filters:fill(auto,1)/tropical-beach-wallpaper-beach-backgrounds-587fbb765f9b584db3241860.jpg');
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    height: 461px;
+    width: 800px;
+    /* background-position: 50% 100%;
+   
+    bottom: 0;
+    height: 100%;
+    margin: none;
+   
+    position: absolute;
+     */
+}  
+</style>
+ </head>
+<body id="bck" >
+  <div style="font-size: large;">
+            <br>  
+            <input type="radio" name="ruser" id="radmin" checked="true" value="c"> &nbsp;&nbsp; Charity
+               &nbsp;&nbsp;
+            <input type="radio" name="ruser" id="rvol" value="v"> &nbsp;&nbsp; Volunteer
+            <br>            <br> 
+<div class="text-center align-middle tab">
+  <button class="tablinks  " onclick="openTab(event, 'Login')" id="defaultOpen">Login</button>
+  <button class="tablinks" onclick="openTab(event, 'Register')">Register</button>
+</div>
+
+<div id="Login"  class="tabcontent">
+
+    <table  class="text-center align-middle" id="tlogin">
+       
+        <tbody>
+            <tr>
+                <td font-size: x-large>
+                    Username : 
+                </td>
+                <td>
+                    <input type="text" id="luserid"> 
+                </td>
+            </tr>
+           
+            <tr>
+                <td font-size: x-large>
+                   Password : 
+                </td>
+                <td>
+                    <input type="text" id="lpwd"> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="text-center">
+                    <button class="text-center" type="Submit" onclick="ls();">
+                        Submit
+                    </button></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div id="Register" class="tabcontent">
+ 
+    <table id="treg">
+       
+        <tbody>
+            <tr>
+                <td font-size: x-large>
+                    Email-id : 
+                </td>
+                <td>
+                    <input type="text" id="remailid"> 
+                </td>
+            </tr>
+            <tr>
+                <td font-size: x-large>
+                    Username : 
+                </td>
+                <td>
+                    <input type="text" id="ruserid"> 
+                </td>
+            </tr>
+           
+            <tr>
+                <td font-size: x-large>
+                   Password : 
+                </td>
+                <td>
+                    <input type="text" id="rpwd"> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="text-center">
+                    <button type="submit" onclick="rs();">
+                        Submit
+                    </button></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+      
+        </div>
+    </body>
+    <script>
+        function s()
+     {   
+     var b1 = document.getElementById("userid").value;
+     var b2 = document.getElementById("pwd").value;  
+   
+    window.location.href="{% url 'charityregisterf' %}"+"?b1="+b1+"&b2="+b2;
+  }
+</script>
+<script>
+        function openTab(evt, tabName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+</script>
+<script>
+
+function ls(){
+ var utype = document.querySelector('input[name="ruser"]:checked').value;
+ var uid = document.getElementById("luserid").value;
+ var pwd = document.getElementById("lpwd").value;
+ window.location.href="{% url 'safety_ohs_a10' %}"+"?utype="+utype+"&uid="+uid+"&pwd="+pwd;
+
+
+}
+
+function rs(){
+
+
+
+
+    
+}
+
+
+</script>
+
+
+
+
+</html>
